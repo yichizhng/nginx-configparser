@@ -30,3 +30,11 @@ TEST(NginxConfigParserTest, CommentTest) {
   EXPECT_STREQ("foo \"bar\";\nserver {\n  listen 80;\n  server_name foo.com;\n  root /home/ubuntu/sites/foo/;\n}\n", out_config.ToString(0).c_str());
 }
 
+TEST(NginxConfigParserTest, StringTest) {
+  NginxConfigParser parser;
+  NginxConfig out_config;
+  
+  bool success = parser.Parse("testconfig3", &out_config);
+
+  EXPECT_TRUE(success);
+}
